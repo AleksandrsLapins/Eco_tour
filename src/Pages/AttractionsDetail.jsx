@@ -3,10 +3,8 @@ import '../styles/attractions-detail.css'
 import {Container, Row, Col, Form, ListGroup} from 'reactstrap'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
-import tourData from '../components/assets/data/tours'
 import calculateAvgRating from '../utils/avgRaing'
 import avatar from '../components/assets/images/avatar.jpg'
-import Booking from '../components/Booking/Booking'
 
 const AttractionsDetails = () => {
     const [attractionDetails, setAttractionDetails] = useState({});

@@ -35,8 +35,6 @@ const TourCard = ({ tour }) => {
 
           <div className="card__bottom d-flex align-items-center justify-content-between mt-3">
             <h5>${tour.Price} <span> / per person</span></h5>
-
-            <button>Book Now</button>
           </div>
         </CardBody>
       </Card>

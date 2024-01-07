@@ -6,7 +6,8 @@ import AttractionsDetail from './../Pages/AttractionsDetail';
 import SearchResultList from './../Pages/SearchResultList';
 import Login from './../Login';
 import Signup from './../Signup';
-import ThankYou from '../Pages/ThankYou';
+import Volunteer from './../components/Volunteer/Volunteer';
+import Eco_offers from './../components/Eco offers/Eco_offers';
 
 const Routers = ( ) => {
   return (
@@ -17,7 +18,8 @@ const Routers = ( ) => {
         <Route path='/Attractions/Search' element={<SearchResultList />}></Route>
         <Route path='/' element={<Login />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
-        <Route path='/thank-you' element={<ThankYou />}></Route>
+        <Route path='/volunteer' element={<Volunteer />}></Route>
+        <Route path='/eco_offers' element={<Eco_offers />}></Route>
       </Routes>
   );
 }
