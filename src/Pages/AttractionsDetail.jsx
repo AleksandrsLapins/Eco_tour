@@ -110,6 +110,7 @@ const AttractionsDetails = () => {
                                 <span><i class="ri-money-dollar-circle-line"></i>${attractionDetails.Price} /per person</span>
                             </div>
                             <h5>Description</h5>
+                            <p>{attractionDetails.Description}</p>
                             <h5>Review</h5>
                             <p>{review.Content}</p>
                         </div>

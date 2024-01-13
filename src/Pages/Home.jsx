@@ -6,9 +6,11 @@ import heroIMG2 from '../components/assets/images/hero-img2.png'
 import heroVideo from '../components/assets/images/hero-video.mp4'
 import SearchBar from '../shared/SearchBar';
 import TourCard from "../shared/TourCard";
+import VolunterCard from "../shared/VolunteerCard";
 
 const Home = () => {
     const [attractions, setAttractions] = useState([]);
+    const [volunteers, setVolunteer] = useState([]);
 
   useEffect(() => {
     const fetchTourData = async () => {
@@ -23,6 +25,21 @@ const Home = () => {
     };
 
     fetchTourData();
+  }, []);
+
+  useEffect(() => {
+    const fetchVolunteerData = async () => {
+      try {
+        const response = await fetch(`http://88.200.63.148:8081/volunteer`);
+        const data = await response.json();
+        setVolunteer(data);
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching volunteer data:', error);
+      }
+    };
+
+    fetchVolunteerData();
   }, []);
     return <>
     <section>
@@ -42,6 +59,20 @@ const Home = () => {
                 {attractions.map(attraction => (
               <Col lg='3' className="mb-4" key={attraction.Aid}>
                 <TourCard tour={attraction} />
+              </Col>
+            ))}
+            </Row>
+        </Container>
+    </section>
+    <section>
+        <Container>
+            <Row>
+                <Col lg='12'>
+                    <h2 className="featured__tour-title"> Our featured volunteers</h2>
+                </Col>
+                {volunteers.map(volunteer => (
+              <Col lg='3' className="mb-4" key={volunteer.Vid}>
+                <VolunterCard tour={volunteer} />
               </Col>
             ))}
             </Row>

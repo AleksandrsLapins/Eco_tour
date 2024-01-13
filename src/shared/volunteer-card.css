@@ -1,4 +1,4 @@
-.tour__img {
+.volunteer__img {
     width: 100%;
     border-radius: 5px 5px 0 0;
 }
@@ -8,11 +8,11 @@
     box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
 }
 
-.tour__img{
+.volunteer__img{
     position: relative;
 }
 
-.tour__img span{
+.volunteer__img span{
     position: absolute;
     bottom: 0;
     right: 0;
@@ -29,35 +29,35 @@
     color: var(--success-color);
 }
 
-.tour__rating{
+.volunteer__rating{
     font-size: 0.9rem;
     color: var(--text-color);
 }
 
-.tour__location{
+.volunteer__location{
     color: var(--heading-color);
     font-weight: 500;
     font-size : 0.9rem;
 }
 
-.tour__rating i,
- .tour__location i{
+.volunteer__rating i,
+ .volunteer__location i{
     color: var(--success-color);
 }
 
-.tour__title {
+.volunteer__title {
     margin-top: 1rem;
     font-style: 1.1rem;
     cursor: pointer;
 }
 
-.tour__title a{
+.volunteer__title a{
     text-decoration: none;
     color: var(--heading-color);
     transition: .3s;   
 }
 
-.tour__title a:hover{
+.volunteer__title a:hover{
     color: green;
 }
 
