@@ -68,7 +68,7 @@ const Header = () => {
                                 }
                             </ul>
                         </div>
-                        {nickname && <span>{nickname}</span>}
+                        <button className='btn btn-success'><Link to="/profile">{nickname && <span>{nickname}</span>}</Link></button>
                         {nickname == null &&
                         <div className='nav__right d-flex align-items-center gap-4'>
                             <div className='nav__btns d-flex align-items-center gap-4'></div>

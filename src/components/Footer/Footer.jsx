@@ -6,24 +6,24 @@ import {Link} from 'react-router-dom'
 import logo from '../assets/images/eco-logo.PNG'
 
 const quick__links= [
-    {
-        path: "/home",
-        display: "Home"
-    },
-    {
-        path: "/about",
-        display: "About"
-    },
     { 
         path: "/attractions",
         display: "Attractions"
+    },
+    {
+        path: "/volunteer",
+        display: "Volunteer"
+    },
+    { 
+        path: "/eco_offers",
+        display: "Eco offers"
     }
 ];
 
 const quick__links2= [
     {
-        path: "/gallery",
-        display: "Gallery"
+        path: "/home",
+        display: "Home"
     },
     {
         path: "/",

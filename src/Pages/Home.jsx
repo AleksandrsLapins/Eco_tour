@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react"
 import '../styles/home.css'
 import {Container, Row, Col} from 'reactstrap';
-import heroIMG from '../components/assets/images/hero-img.png'
-import heroIMG2 from '../components/assets/images/hero-img2.png'
-import heroVideo from '../components/assets/images/hero-video.mp4'
 import SearchBar from '../shared/SearchBar';
 import TourCard from "../shared/TourCard";
 import VolunterCard from "../shared/VolunteerCard";
+import Eco_offersCard from "../shared/Eco_offersCard";
 
 const Home = () => {
     const [attractions, setAttractions] = useState([]);
     const [volunteers, setVolunteer] = useState([]);
+    const [eco, setEco] = useState([]);
 
   useEffect(() => {
     const fetchTourData = async () => {
@@ -40,6 +39,21 @@ const Home = () => {
     };
 
     fetchVolunteerData();
+  }, []);
+
+  useEffect(() => {
+    const fetchEcoData = async () => {
+      try {
+        const response = await fetch(`http://88.200.63.148:8081/eco_offers`);
+        const data = await response.json();
+        setEco(data);
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching eco offers data:', error);
+      }
+    };
+
+    fetchEcoData();
   }, []);
     return <>
     <section>
@@ -78,7 +92,22 @@ const Home = () => {
             </Row>
         </Container>
     </section>
+    <section>
+        <Container>
+            <Row>
+            <Col lg='12'>
+                    <h2 className="featured__tour-title"> Eco offers from other users</h2>
+                </Col>
+                {eco.map(eco_offers => (
+              <Col lg='3' className="mb-4" key={eco_offers.EOid}>
+                <Eco_offersCard tour={eco_offers} />
+              </Col>
+            ))}
+            </Row>
+        </Container>
+    </section>
     </>
+  
 }     
 
 export default Home
