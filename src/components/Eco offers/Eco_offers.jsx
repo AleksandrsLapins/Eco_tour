@@ -25,13 +25,6 @@ const Eco_offers = () =>  {
     return <>
     <CommonSection title={"All Eco Offers from users"}></CommonSection>
     <section>
-    <Container>
-        <Row>
-            <SearchBar/>
-        </Row>
-    </Container>
-    </section>
-    <section>
         <Container>
             <Row>
                 {eco.map(eco_offers => (

@@ -7,11 +7,9 @@ import './Profile.css'
 const Profile = () => {
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
-    const [nickname, setNickname] = useState('');
-    const [photo, setPhoto] = useState('');
   
     const handleSave = () => {
-      console.log('Saving changes:', { name, surname, nickname, photo });
+      console.log('Saving changes:', { name, surname});
     };
   
     return (
@@ -33,21 +31,11 @@ const Profile = () => {
             value={surname}
             onChange={(e) => setSurname(e.target.value)}
           />
-  
-          <label htmlFor="nickname">Nickname:</label>
-          <input
-            type="text"
-            id="nickname"
-            value={nickname}
-            onChange={(e) => setNickname(e.target.value)}
-          />
 
           <label htmlFor="photo">Photo:</label>
           <input
             type="file"
             id="photo"
-            value={photo}
-            onChange={(e) => setPhoto(e.target.value)}
           />
   
           <button type="button" onClick={handleSave}>

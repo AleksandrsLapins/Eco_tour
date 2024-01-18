@@ -29,7 +29,6 @@ const AttractionsDetails = () => {
 
         fetchComments();
       fetchAttractionDetails();
-      fetchReview();
     }, [id]);
 
     const fetchAttractionDetails = async () => {
@@ -59,17 +58,6 @@ const AttractionsDetails = () => {
         }
     };
 
-    const fetchReview = async () => {
-        try {
-            const response = await fetch(`http://88.200.63.148:8081/review/${id}`);
-            const data = await response.json();
-            setReview(data[0]);
-            console.log(data);
-        } catch (error) {
-            console.error('Error fetching attraction details:', error);
-        }
-    };
-
     const AddComments = async () => {
         try {
             const response = await axios.post(`http://88.200.63.148:8081/addcomment`, {
@@ -83,8 +71,33 @@ const AttractionsDetails = () => {
             console.error('Error adding comments details:', error);
         }
     };
+
+    const deleteComment = async (commentId) => {
+        console.log(commentId)
+        try {
+            // Make a DELETE request to the server to delete the comment
+            const response = await axios.delete(`http://88.200.63.148:8081/comments/${commentId}`);
+            console.log(response.data);
     
-    
+            if (response.status === 200) {
+                // Update the comments state by filtering out the deleted comment
+                setcomments((prevComments) => prevComments.filter(comment => comment.id !== commentId));
+                console.log('Comment deleted successfully');
+            } else {
+                console.error('Unexpected response status:', response.status);
+            }
+        } catch (error) {
+            console.error('Error deleting comment:', error);
+            if (error.response) {
+                if (error.response.status === 404) {
+                    console.warn('Comment not found:', error.response.data.message);
+                    // You may want to display a user-friendly message to the user.
+                } else {
+                    console.error('Server responded with:', error.response.status, error.response.data);
+                }
+            }
+        }
+    };
   
     if (!attractionDetails) {
       // Loading state or handle error
@@ -138,7 +151,7 @@ const AttractionsDetails = () => {
                         <ListGroup className='user__reviews'>
                                 
                                         {comments.map((comment) => (
-                                            <div className="review__item" key={comment.id}>
+                                            <div className="review__item" key={comment.Cid}>
                                               <div className="w-100">
                                                 <div className="d-flex align-items-start justify-content-between">
                                                   <div className="user-info">
@@ -155,6 +168,12 @@ const AttractionsDetails = () => {
                                                     <span className="d-flex align-items-center">
                                                       {tourRating}<i className="ri-star-s-fill"></i>
                                                     </span>
+                                                    <button
+                                        className='btn btn-danger text-white'
+                                        onClick={() => deleteComment(comment.Cid)}
+                                    >
+                                        Delete
+                                    </button>
                                                   </div>
                                                 </div>
                                               </div>
