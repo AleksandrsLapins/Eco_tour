@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 import './Profile.css'
 
@@ -7,9 +8,14 @@ import './Profile.css'
 const Profile = () => {
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
+    const [password, setPassword] = useState('');
   
     const handleSave = () => {
-      console.log('Saving changes:', { name, surname});
+      const nickname = localStorage.getItem('user');
+      const values = [name, surname, password, nickname];
+      console.log('Saving changes:', values);
+      
+      axios.post('http://88.200.63.148:8081/updateUser', values)
     };
   
     return (
@@ -30,6 +36,14 @@ const Profile = () => {
             id="surname"
             value={surname}
             onChange={(e) => setSurname(e.target.value)}
+          />
+
+          <label htmlFor="password">Password:</label>
+          <input
+            type="text"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
 
           <label htmlFor="photo">Photo:</label>
