@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import './volunteer.css'
-import SearchBar from '../../shared/SearchBar';
 import VolunterCard from "../../shared/VolunteerCard";
 import { Container, Row, Col, Form, FormGroup  } from 'reactstrap';
 import CommonSection from "../../shared/CommonSection";
