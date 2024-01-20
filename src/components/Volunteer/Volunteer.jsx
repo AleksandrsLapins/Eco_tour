@@ -36,7 +36,7 @@ const Volunteer = () =>  {
 
 
     return <>
-    <CommonSection title={"All Volunteers"}></CommonSection>
+    <CommonSection title={"All Volunteers works"}></CommonSection>
     <section>
         <Container>
           <Row>

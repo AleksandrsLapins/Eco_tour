@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 
-import './Profile.css'
+import './addeco_offers.css'
 
 
-const Profile = () => {
+const AddEco_offers = () => {
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [password, setPassword] = useState('');
@@ -45,6 +45,12 @@ const Profile = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+
+          <label htmlFor="photo">Photo:</label>
+          <input
+            type="file"
+            id="photo"
+          />
   
           <button type="button" onClick={handleSave}>
             Save Changes
@@ -54,4 +60,4 @@ const Profile = () => {
     );
   };
   
-  export default Profile;
+  export default AddEco_offers;

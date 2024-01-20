@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import './eco_offers.css'
-import SearchBar from '../../shared/SearchBar';
 import Eco_offersCard from "../../shared/Eco_offersCard";
 import { Container, Row, Col } from 'reactstrap';
 import CommonSection from "../../shared/CommonSection";

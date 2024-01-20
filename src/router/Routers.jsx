@@ -8,6 +8,7 @@ import Login from './../Login';
 import Signup from './../Signup';
 import Volunteer from './../components/Volunteer/Volunteer';
 import Eco_offers from './../components/Eco offers/Eco_offers';
+import AddEco_offers from '../components/Eco offers/AddEco_offers';
 import Profile from './../components/Profile/Profile';
 const Routers = ( ) => {
   return (
@@ -20,6 +21,7 @@ const Routers = ( ) => {
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/volunteer' element={<Volunteer />}></Route>
         <Route path='/eco_offers' element={<Eco_offers />}></Route>
+        <Route path='/addeco_offers' element={<AddEco_offers />}></Route>
         <Route path='/profile' element={<Profile />}></Route>
       </Routes>
   );

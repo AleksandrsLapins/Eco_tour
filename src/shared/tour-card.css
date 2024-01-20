@@ -72,3 +72,6 @@
     color: green;
     font-size: 0.8rem;
 }
+.tour__card h5 Link{
+    text-decoration: none;
+}

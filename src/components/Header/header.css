@@ -20,16 +20,16 @@
 }
 
 .nav__item a:hover{
-    color: inherit
+    color: red;
 }
 
 .nav__item a.active__link{
-    color: var(--success-color);
+    color: green;
 }
 
 .mobile_menu{
     font-size: 1.3rem;
-    color: var(--success-color);
+    color: green;
     display: none;
 }
 

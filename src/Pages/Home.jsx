@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import '../styles/home.css'
 import {Container, Row, Col} from 'reactstrap';
-import SearchBar from '../shared/SearchBar';
 import TourCard from "../shared/TourCard";
 import VolunterCard from "../shared/VolunteerCard";
 import Eco_offersCard from "../shared/Eco_offersCard";
@@ -56,13 +55,6 @@ const Home = () => {
     fetchEcoData();
   }, []);
     return <>
-    <section>
-    <Container>
-        <Row>
-            <SearchBar/>
-        </Row>
-    </Container>
-    </section>
     <section>
         <Container>
             <Row>
