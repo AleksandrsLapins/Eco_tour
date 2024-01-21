@@ -59,7 +59,6 @@ const Home = () => {
         <Container>
             <Row>
                 <Col lg='12'>
-                    <h5 className="mb-5">Trending Products</h5>
                     <h2 className="featured__tour-title"> Our featured tours</h2>
                 </Col>
                 {attractions.map(attraction => (

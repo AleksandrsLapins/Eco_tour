@@ -6,55 +6,49 @@ import './addeco_offers.css'
 
 
 const AddEco_offers = () => {
-    const [name, setName] = useState('');
-    const [surname, setSurname] = useState('');
-    const [password, setPassword] = useState('');
+    const [city, setCity] = useState('');
+    const [content, setContent] = useState('');
+
   
-    const handleSave = () => {
-      const nickname = localStorage.getItem('user');
-      const values = [name, surname, password, nickname];
-      console.log('Saving changes:', values);
-      
-      axios.post('http://88.200.63.148:8081/updateUser', values)
+    const handleSave = async () => {
+      try {
+        await axios.post(`http://88.200.63.148:8081/addeco`, {
+          Nickname: localStorage.getItem('user'),
+          City : city,
+          Content: content,
+        });
+    
+        console.log('Comment added successfully');
+        
+      } catch (error) {
+        console.error('Error adding or fetching comments:', error);
+      }
     };
-  
+    
+
     return (
       <div className="profile-edit-container">
         <h1>Edit Profile</h1>
         <form>
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="Content">Content:</label>
           <input
             type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            id="content"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
           />
   
-          <label htmlFor="surname">Surname:</label>
+          <label htmlFor="City">City:</label>
           <input
             type="text"
-            id="surname"
-            value={surname}
-            onChange={(e) => setSurname(e.target.value)}
-          />
-
-          <label htmlFor="password">Password:</label>
-          <input
-            type="text"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          <label htmlFor="photo">Photo:</label>
-          <input
-            type="file"
-            id="photo"
+            id="city"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
           />
   
-          <button type="button" onClick={handleSave}>
+          <button type="button" onClick={handleSave}><Link to = "/eco_offers" style={{ textDecoration: 'none', color: 'inherit' }}>
             Save Changes
-          </button>
+            </Link></button>
         </form>
       </div>
     );
