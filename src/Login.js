@@ -16,11 +16,10 @@ function Login() {
         setValues((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        setErrors(validation(values));
-        setErrors(validation(values));
-        if(errors.nickname === '' && errors.password === '') {
+    const handleSubmit = () => {
+        // setErrors(validation(values));
+        // console.log(errors)
+        if(values.nickname !== '' && values.password !== '') {
             axios.post('http://88.200.63.148:8081/login2', values)
     .then(res => {
         if (res.data.message === "Success") {
@@ -28,7 +27,7 @@ function Login() {
 
             localStorage.setItem('user', values.nickname);
             navigate('/home');
-            window.location.reload();
+        window.location.reload();
         } else {
             alert("Wrong nickname or password");
         }
@@ -41,7 +40,7 @@ function Login() {
         <div className='d-flex justify-content-center align-items-center bg-success vh-100'>
             <div className='bg-white p-3 rounded w-25'>
                 <h2>Log in</h2>
-                <form action='' onSubmit={handleSubmit}>
+                <form action='' >
                     <div className='mb-3'>
                         <label htmlFor='nickname'><strong>Nickname</strong></label>
                         <input
@@ -50,6 +49,7 @@ function Login() {
                             placeholder='Enter your Nickname'
                             onChange={handleInput}
                             className='form-control rounded-0'
+                            required
                         />
                         {errors.nickname && <span className='text-danger'>{errors.nickname}</span>}
                     </div>
@@ -61,10 +61,11 @@ function Login() {
                             placeholder='Enter your Password'
                             onChange={handleInput}
                             className='form-control rounded-0'
+                            required
                         />
                         {errors.password && <span className='text-danger'>{errors.password}</span>}
                     </div>
-                    <button type='submit' className='btn btn-success w-100 rounded-0'>
+                    <button type='button' className='btn btn-success w-100 rounded-0' onClick={handleSubmit}>
                         <strong>Log in</strong>
                     </button>
                     <p>Don't have an account?</p>

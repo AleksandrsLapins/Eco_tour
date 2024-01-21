@@ -29,7 +29,7 @@ const AddEco_offers = () => {
 
     return (
       <div className="profile-edit-container">
-        <h1>Add Eco Offers</h1>
+        <h1>Add Eco offers</h1>
         <form>
           <label htmlFor="Content">Content:</label>
           <input
@@ -46,9 +46,10 @@ const AddEco_offers = () => {
             value={city}
             onChange={(e) => setCity(e.target.value)}
           />
-            <Link to='/eco_offers' style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Link to='/eco_offers' style={{ textDecoration: 'none', color: 'inherit' }} onClick={handleSave}>
               <Button className='add_btn btn btn-success'>
                 Save Changes
+              
             </Button>
             </Link>
         </form>
