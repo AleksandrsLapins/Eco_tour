@@ -11,7 +11,7 @@ const Attractions = () => {
   useEffect(() => {
     const fetchTourData = async () => {
       try {
-        const response = await fetch(`http://88.200.63.148:8081/attractions`);
+        const response = await fetch(`http://88.200.63.148:8081/attractions2`);
         const data = await response.json();
         setAttractions(data);
       } catch (error) {

@@ -12,7 +12,6 @@ const AttractionsDetails = () => {
   const [ratings, setRatings] = useState([]);
   const { id } = useParams();
 
-  const reviewMsgRef = useRef('');
   const [tourRating, setTourRating] = useState(0);
 
   const imageBuffer = attractionDetails.Image?.data && new Uint8Array(attractionDetails.Image.data);
@@ -32,8 +31,6 @@ const AttractionsDetails = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const reviewText = reviewMsgRef.current.value;
-    alert(`${reviewText}, ${tourRating}`);
   };
 
   useEffect(() => {
@@ -45,7 +42,7 @@ const AttractionsDetails = () => {
   const fetchAttractionDetails = async () => {
     console.log("Image data:", attractionDetails.Image);
     try {
-      const response = await fetch(`http://88.200.63.148:8081/attractions/${id}`);
+      const response = await fetch(`http://88.200.63.148:8081/attractions2/${id}`);
       const data = await response.json();
       setAttractionDetails(data);
     } catch (error) {
@@ -167,6 +164,20 @@ const AttractionsDetails = () => {
 
               <div className='tour__reviews mt-4'>
                 <Form onSubmit={submitHandler}>
+                  
+
+                  <div className='review__input'>
+                    <input
+                      type='text'
+                      onChange={(e) => setAddComments(e.target.value)}
+                      placeholder='share your thoughts'
+                      required
+                    />
+                    <button className='btn btn-success text-white' type='submit' onClick={addComment}>
+                      Submit
+                    </button>
+                  </div>
+
                   <div className='d-flex align-items-center gap-3 mb-4 rating__group'>
                     {[1, 2, 3, 4, 5].map((star) => (
                       <span key={star} onClick={() => handleStarClick(star)}>
@@ -174,19 +185,6 @@ const AttractionsDetails = () => {
                         {star <= tourRating ? <i className='ri-star-s-fill'></i> : <i className='ri-star-s-line'></i>}
                       </span>
                     ))}
-                  </div>
-
-                  <div className='review__input'>
-                    <input
-                      type='text'
-                      onChange={(e) => setAddComments(e.target.value)}
-                      ref={reviewMsgRef}
-                      placeholder='share your thoughts'
-                      required
-                    />
-                    <button className='btn btn-success text-white' type='submit' onClick={addComment}>
-                      Submit
-                    </button>
                   </div>
                 </Form>
               </div>
@@ -207,12 +205,15 @@ const AttractionsDetails = () => {
                           </div>
                         </div>
                         <div className='content-and-rating'>
-                          <button
-                            className='btn btn-danger text-white'
+                          {comment.Nickname === localStorage.getItem('user') && 
+                            <button 
+                            style={{marginLeft: '10px'}}
+                            className='btn btn-danger text-white ' 
                             onClick={() => deleteComment(comment.Cid)}
                           >
                             Delete
                           </button>
+                          }
                         </div>
                       </div>
                     </div>

@@ -42,7 +42,7 @@ const AttractionsDetails = () => {
 
     const fetchVolunteerDetails = async () => {
         try {
-            const response = await fetch(`http://88.200.63.148:8081/volunteer/${id}`);
+            const response = await fetch(`http://88.200.63.148:8081/volunteer2/${id}`);
             const data = await response.json();
             setVolunteerDetails(data);
             console.log(data);

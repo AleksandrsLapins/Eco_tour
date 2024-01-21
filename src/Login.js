@@ -21,7 +21,7 @@ function Login() {
         setErrors(validation(values));
         setErrors(validation(values));
         if(errors.nickname === '' && errors.password === '') {
-            axios.post('http://88.200.63.148:8081/login', values)
+            axios.post('http://88.200.63.148:8081/login2', values)
     .then(res => {
         if (res.data.message === "Success") {
 

@@ -19,10 +19,11 @@ function Signup() {
     };
 
     const handleSubmit = (event) => {
+        console.log('Form submitted!');
         event.preventDefault();
         setErrors(validation(values));
         if(errors.name === '' && errors.surname === '' && errors.nickname === '' && errors.password === '') {
-            axios.post('http://88.200.63.148:8081/signup', values)
+            axios.post('http://88.200.63.148:8081/signup2', values)
             .then(res => {
                 navigate('/')
             })
@@ -80,7 +81,7 @@ function Signup() {
                         {errors.password && <span className='text-danger'>{errors.password}</span>}
                     </div>
                     <button className='btn btn-success w-100 rounded-0'><strong>Sign up</strong></button>
-                    <p>Don't have an account?</p>
+                    <p>You have account?</p>
                     <Link to="/" className='btn btn-default border w-100 bg-light rounded-0 text-decoration-none'>Login</Link>
                 </form>
            </div>

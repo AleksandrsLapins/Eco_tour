@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     const fetchTourData = async () => {
       try {
-        const response = await fetch(`http://88.200.63.148:8081/attractions`);
+        const response = await fetch(`http://88.200.63.148:8081/attractions2`);
         const data = await response.json();
         setAttractions(data);
         console.log(data);
@@ -28,7 +28,7 @@ const Home = () => {
   useEffect(() => {
     const fetchVolunteerData = async () => {
       try {
-        const response = await fetch(`http://88.200.63.148:8081/volunteer`);
+        const response = await fetch(`http://88.200.63.148:8081/volunteer2`);
         const data = await response.json();
         setVolunteer(data);
         console.log(data);
@@ -43,7 +43,7 @@ const Home = () => {
   useEffect(() => {
     const fetchEcoData = async () => {
       try {
-        const response = await fetch(`http://88.200.63.148:8081/eco_offers`);
+        const response = await fetch(`http://88.200.63.148:8081/eco_offers2`);
         const data = await response.json();
         setEco(data);
         console.log(data);

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import { Button } from 'reactstrap';
 
 import './addeco_offers.css'
 
@@ -28,7 +29,7 @@ const AddEco_offers = () => {
 
     return (
       <div className="profile-edit-container">
-        <h1>Edit Profile</h1>
+        <h1>Add Eco Offers</h1>
         <form>
           <label htmlFor="Content">Content:</label>
           <input
@@ -45,10 +46,11 @@ const AddEco_offers = () => {
             value={city}
             onChange={(e) => setCity(e.target.value)}
           />
-  
-          <button type="button" onClick={handleSave}><Link to = "/eco_offers" style={{ textDecoration: 'none', color: 'inherit' }}>
-            Save Changes
-            </Link></button>
+            <Link to='/eco_offers' style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Button className='add_btn btn btn-success'>
+                Save Changes
+            </Button>
+            </Link>
         </form>
       </div>
     );

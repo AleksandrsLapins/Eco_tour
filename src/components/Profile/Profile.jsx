@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios';
+import { Button } from 'reactstrap';
 
 import './Profile.css'
 
@@ -45,9 +46,9 @@ const Profile = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
   
-          <button type="button" onClick={handleSave}>
+          <Button className='add_btn btn btn-success' onClick={handleSave}>
             Save Changes
-          </button>
+          </Button>
         </form>
       </div>
     );

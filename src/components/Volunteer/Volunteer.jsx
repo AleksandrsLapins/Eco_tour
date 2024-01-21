@@ -10,7 +10,7 @@ const Volunteer = () =>  {
   useEffect(() => {
     const fetchVolunteerData = async () => {
       try {
-        const response = await fetch(`http://88.200.63.148:8081/volunteer`);
+        const response = await fetch(`http://88.200.63.148:8081/volunteer2`);
         const data = await response.json();
         setVolunteer(data);
         console.log(data);

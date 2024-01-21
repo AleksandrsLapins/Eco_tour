@@ -68,15 +68,15 @@ const Header = () => {
                                 }
                             </ul>
                         </div>
-                        <button className='btn btn-success'><Link to="/profile" style={{ textDecoration: 'none', color: 'inherit' }}>{nickname && <span>{nickname}</span>}</Link></button>
                         {nickname == null &&
                         <div className='nav__right d-flex align-items-center gap-4'>
                             <div className='nav__btns d-flex align-items-center gap-4'></div>
-                            <Button className='btn btn-success' ><Link to='/'>Login</Link></Button>
-                            <Button className='btn btn-success'><Link to='/signup'>Signup</Link></Button>
+                            <Button className='btn btn-success' ><Link to='/' style={{ textDecoration: 'none', color: 'inherit' }}>Login</Link></Button>
+                            <Button className='btn btn-success'><Link to='/signup' style={{ textDecoration: 'none', color: 'inherit' }}>Signup</Link></Button>
                         </div>}
                         {nickname && <div className='nav__right d-flex align-items-center gap-4'>
                             <div className='nav__btns d-flex align-items-center gap-4'></div>
+                            <Button className='btn btn-success'><Link to="/profile" style={{ textDecoration: 'none', color: 'inherit' }}>{nickname && <span>{nickname}</span>}</Link></Button>
                             <Button className='btn btn-success' onClick={() => logout()}>Logout</Button>
                         </div>}
                         <span className="mobile_menu">
